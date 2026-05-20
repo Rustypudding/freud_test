@@ -244,16 +244,21 @@ body {
         gap: 24px;
     }
 
+    .left-panel {
+        order: 2;
+    }
+
     .right-panel {
         flex: none;
         width: 100%;
         display: flex;
         justify-content: center;
+        order: 1;
     }
 
     .freud-portrait {
-        width: 300px;
-        height: 405px;
+        width: 260px;
+        height: 351px;
     }
 
     .header h1 {
