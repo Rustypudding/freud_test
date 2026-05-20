@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弗洛伊德 · 恋母情结分析</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>西格蒙德·弗洛伊德</h1>
+            <p class="subtitle">Sigmund Freud · 精神分析学之父</p>
+        </header>
+
+        <div class="layout">
+            <div class="left-panel">
+                <p class="input-hint">试着随便说点什么，让弗洛伊德来分析</p>
+                <div class="input-area">
+                    <textarea
+                        id="user-input"
+                        placeholder="在这里写下你想说的话……"
+                        rows="6"
+                        maxlength="500"
+                    ></textarea>
+                    <div class="input-footer">
+                        <span class="char-count"><span id="char-count">0</span>/500</span>
+                    </div>
+                    <button id="analyze-btn" class="analyze-btn">你怎么看？</button>
+                </div>
+                <div id="output-area" class="output-area">
+                    <div id="output-content" class="output-content"></div>
+                    <span id="cursor" class="cursor" style="display:none;">|</span>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="freud-portrait">
+                    <img id="freud-image" src="/image/default.png" alt="弗洛伊德肖像">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

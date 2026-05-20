@@ -1,0 +1,262 @@
+/* ==============================================
+   弗洛伊德恋母情结分析 — 样式
+   ============================================== */
+
+:root {
+    --bg: #1a1410;
+    --card-bg: #231d16;
+    --text: #d4c5b2;
+    --text-muted: #8a7b6b;
+    --accent: #c8a45c;
+    --accent-glow: #d4af6a;
+    --highlight: #e8c96a;
+    --highlight-bg: #3d2e14;
+    --border: #3a3026;
+    --btn-bg: #2d241a;
+    --btn-hover: #3d3026;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(200, 164, 92, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(200, 164, 92, 0.04) 0%, transparent 60%);
+    color: var(--text);
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    line-height: 1.7;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    padding: 40px 28px 60px;
+}
+
+/* ---- Header ---- */
+.header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    font-style: italic;
+}
+
+/* ---- Two-column Layout ---- */
+.layout {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+}
+
+.left-panel {
+    flex: 1 1 55%;
+    min-width: 0;
+}
+
+.right-panel {
+    flex: 0 0 450px;
+}
+
+/* ---- Freud Portrait ---- */
+.freud-portrait {
+    width: 450px;
+    height: 608px;       /* 1000:1350 = 450:608 */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    box-shadow: 0 0 40px rgba(200, 164, 92, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+    background: var(--card-bg);
+    flex-shrink: 0;
+}
+
+.freud-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+/* ---- Input Hint ---- */
+.input-hint {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* ---- Input Area ---- */
+.input-area {
+    width: 100%;
+}
+
+#user-input {
+    width: 100%;
+    padding: 18px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px 8px 0 0;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    min-height: 160px;
+}
+
+#user-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(200, 164, 92, 0.1);
+}
+
+#user-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+#user-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.input-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 6px 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 16px;
+}
+
+.char-count {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ---- Button ---- */
+.analyze-btn {
+    width: 100%;
+    padding: 16px 0;
+    background: var(--btn-bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.analyze-btn:hover:not(:disabled) {
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 4px 20px rgba(200, 164, 92, 0.25);
+}
+
+.analyze-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.analyze-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ---- Output Area ---- */
+.output-area {
+    min-height: 60px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 16px;
+    margin-top: 16px;
+}
+
+.output-content {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    word-break: break-word;
+}
+
+.output-content:empty {
+    display: none;
+}
+
+/* ---- Highlight ---- */
+.highlight {
+    color: var(--highlight);
+    background: var(--highlight-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ---- Cursor ---- */
+.cursor {
+    display: inline;
+    color: var(--accent);
+    font-weight: 300;
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .container {
+        padding: 24px 16px 40px;
+    }
+
+    .layout {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .right-panel {
+        flex: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .freud-portrait {
+        width: 300px;
+        height: 405px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+}
